@@ -142,6 +142,3 @@ function createEndPoints() {
     }
   });
 }
-
-// Call the createEndPoints function when the page loads
-window.onload = createEndPoints;
