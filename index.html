@@ -11,9 +11,21 @@
     </header>
     <!-- The form that allows the user to input the end points (postcodes) -->
     <form id="route-form">
-      <label for="end-points">End Points (postcodes):</label>
+      <label for="end-point-1">Start Point (postcode):</label>
       <br>
-      <textarea id="end-points" rows="10" cols="50"></textarea>
+      <input type="text" id="end-point-1" value="WA4 1RX">
+      <br>
+      <br>
+      <!-- Use JavaScript to add the stop points -->
+      <script>
+        for (var i = 2; i <= 9; i++) {
+          document.write('<label for="end-point-' + i + '">Stop Point (postcode):</label><br><input type="text" id="end-point-' + i + '"><br><br>');
+        }
+      </script>
+      <label for="end-point-10">End Point (postcode):</label>
+      <br>
+      <input type="text" id="end-point-10">
+      <br>
       <br>
       <button type="submit">Plan Route</button>
     </form>
