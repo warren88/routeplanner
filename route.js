@@ -105,40 +105,28 @@ document.getElementById("route-form").addEventListener("submit", function (e) {
 });
 
 //Form function adding text fields
-function createEndPoints() {
-  // Create the start point text field
-  var startPoint = document.createElement("div");
-  startPoint.className = "end-point";
-  startPoint.innerHTML = '<label for="end-point-1">Start Point (postcode):</label><br><input type="text" id="end-point-1" value="WA4 1RX">';
-  document.getElementById("route-form").appendChild(startPoint);
-
-  // Create the stop point text fields
+function c() {
+  var a = document.createElement("div");
+  a.className = "end-point";
+  a.innerHTML = '<label for="end-point-1">Start Point (postcode):</label><br><input type="text" id="end-point-1" value="WA4 1RX">';
+  document.getElementById("route-form").appendChild(a);
   for (var i = 2; i <= 3; i++) {
-    var stopPoint = document.createElement("div");
-    stopPoint.className = "end-point";
-    stopPoint.innerHTML = '<label for="end-point-' + i + '">Stop Point (postcode):</label><br><input type="text" id="end-point-' + i + '">';
-    document.getElementById("route-form").appendChild(stopPoint);
+    var b = document.createElement("div");
+    b.className = "end-point";
+    b.innerHTML = '<input type="text" id="end-point-' + i + '">';
+    document.getElementById("route-form").appendChild(b);
   }
-
-  // Create the end point text field
-  var endPoint = document.createElement("div");
-  endPoint.className = "end-point";
-  endPoint.innerHTML = '<label for="end-point-4">End Point (postcode):</label><br><input type="text" id="end-point-4">';
-  document.getElementById("route-form").appendChild(endPoint);
-
-  // Add an event listener to the end point text field to add additional fields if necessary
+  var c = document.createElement("div");
+  c.className = "end-point";
+  c.innerHTML = '<label for="end-point-4">End Point (postcode):</label><br><input type="text" id="end-point-4">';
+  document.getElementById("route-form").appendChild(c);
   document.getElementById("end-point-4").addEventListener("input", function() {
-    // Check if there are already the maximum number of fields
-    if (document.getElementsByClassName("end-point").length >= 25) {
-      return;
-    }
-
-    // If the end point field is not empty, add another field
+    if (document.getElementsByClassName("end-point").length >= 25) return;
     if (this.value) {
-      var newEndPoint = document.createElement("div");
-      newEndPoint.className = "end-point";
-      newEndPoint.innerHTML = '<label for="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">Stop Point (postcode):</label><br><input type="text" id="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">';
-      document.getElementById("route-form").appendChild(newEndPoint);
+      var d = document.createElement("div");
+      d.className = "end-point";
+      d.innerHTML = '<input type="text" id="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">';
+      document.getElementById("route-form").appendChild(d);
     }
   });
 }
