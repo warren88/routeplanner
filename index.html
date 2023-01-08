@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Route Planner</title>
+    <style>
+      /* Add some styling to make the app look nice */
+      #map {
+        height: 500px;
+        width: 700px;
+      }
+      #route-details {
+        width: 700px;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid black;
+        padding: 5px;
+      }
+      .stop {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The form that allows the user to input the end points (postcodes) -->
+    <form id="route-form">
+      <label for="end-points">End Points (postcodes):</label>
+      <br>
+      <textarea id="end-points" rows="10" cols="50"></textarea>
+      <br>
+      <button type="submit">Plan Route</button>
+    </form>
+    <!-- The div that will contain the map -->
+    <div id="map"></div>
+    <!-- The div that will contain the route details -->
+    <div id="route-details"></div>
+
+    <!-- Include the Google Maps API script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <!-- Include the route.js file -->
+    <script src="route.js"></script>
+  </body>
+</html>
