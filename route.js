@@ -106,27 +106,34 @@ document.getElementById("route-form").addEventListener("submit", function (e) {
 
 //Form function adding text fields
 function c() {
-  var a = document.createElement("div");
-  a.className = "end-point";
-  a.innerHTML = '<label for="end-point-1">Start Point (postcode):</label><br><input type="text" id="end-point-1" value="WA4 1RX">';
-  document.getElementById("route-form").appendChild(a);
-  for (var i = 2; i <= 3; i++) {
-    var b = document.createElement("div");
-    b.className = "end-point";
-    b.innerHTML = '<input type="text" id="end-point-' + i + '">';
-    document.getElementById("route-form").appendChild(b);
+  var s = document.createElement("div");
+  s.className = "end-point";
+  s.innerHTML = '<label for="end-point-1">Start Point (postcode):</label><br><input type="text" id="end-point-1" value="WA4 1RX">';
+  document.getElementById("route-form").appendChild(s);
+  for (var i = 2; i <= 4; i++) {
+    var e = document.createElement("div");
+    e.className = "end-point";
+    e.innerHTML = '<label for="end-point-' + i + '">End Point (postcode):</label><br><input type="text" id="end-point-' + i + '">';
+    document.getElementById("route-form").appendChild(e);
   }
-  var c = document.createElement("div");
-  c.className = "end-point";
-  c.innerHTML = '<label for="end-point-4">End Point (postcode):</label><br><input type="text" id="end-point-4">';
-  document.getElementById("route-form").appendChild(c);
-  document.getElementById("end-point-4").addEventListener("input", function() {
+  document.getElementById("route-form").addEventListener("input", function() {
     if (document.getElementsByClassName("end-point").length >= 25) return;
-    if (this.value) {
-      var d = document.createElement("div");
-      d.className = "end-point";
-      d.innerHTML = '<input type="text" id="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">';
-      document.getElementById("route-form").appendChild(d);
+    var f = true;
+    var e = document.getElementsByClassName("end-point");
+    for (var i = 0; i < e.length; i++) {
+      if (!e[i].children[1].value) {
+        f = false;
+        break;
+      }
+    }
+    if (f) {
+      var e = document.createElement("div");
+      e.className = "end-point";
+      e.innerHTML = '<label for="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">End Point (postcode):</label><br><input type="text" id="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">';
+      document.getElementById("route-form").appendChild(e);
+      for (var i = 0; i < e.length - 1; i++) {
+        e[i].children[0].remove();
+      }
     }
   });
 }
