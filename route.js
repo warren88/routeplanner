@@ -121,23 +121,14 @@ function c() {
   }
 
   // Add an event listener to the form to check if all fields are filled and add additional fields if necessary
-  document.getElementById("route-form").addEventListener("input", function() {
-    if (document.getElementsByClassName("end-point").length >= 25) return;
-    var filled = true;
-    var endPoints = document.getElementsByClassName("end-point");
-    for (var i = 0; i < endPoints.length; i++) {
-      if (!endPoints[i].children[0].value) {
-        filled = false;
-        break;
-      }
-    }
-    if (filled) {
+  document.getElementById("route-form").addEventListener("input", function(event) {
+    if (event.target.value && event.target.className === "end-point" && document.getElementsByClassName("end-point").length < 25) {
       var endPoint = document.createElement("div");
       endPoint.className = "end-point";
       endPoint.innerHTML = '<input type="text" id="end-point-' + (document.getElementsByClassName("end-point").length + 1) + '">';
       document.getElementById("route-form").appendChild(endPoint);
-      for (var i = 0; i < endPoints.length - 1; i++) {
-        endPoints[i].children[0].removeAttribute("label");
+      for (var i = 0; i < document.getElementsByClassName("end-point").length - 1; i++) {
+        document.getElementsByClassName("end-point")[i].children[0].removeAttribute("label");
       }
     }
   });
